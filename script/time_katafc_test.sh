@@ -26,7 +26,7 @@ cp $crictl_config $base_dir/
 for c in ${concurency[@]}; do
     echo "--- kata-fc $c"
     export result_dir=$(printf "%s/con_%03d" $base_dir $c)
-    $DIR/closedloop.sh $c 50 kata-fc
+    $DIR/closedloop.sh $c 10 kata-fc
     if [[ $? != 0 ]]; then
         exit $?
     fi

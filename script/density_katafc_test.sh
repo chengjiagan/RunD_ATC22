@@ -28,7 +28,7 @@ for d in ${density[@]}; do
     for c in ${concurency[@]}; do
         echo "--- kata-fc $d $c"
         export result_dir=$(printf "%s/density_%04d/con_%03d" $base_dir $d $c)
-        ns="density-test" $DIR/closedloop.sh $c 20 kata-fc
+        ns="density-test" $DIR/closedloop.sh $c 10 kata-fc
         if [[ $? != 0 ]]; then
             exit $?
         fi

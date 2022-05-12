@@ -31,7 +31,7 @@ for d in ${density[@]}; do
     for c in ${concurency[@]}; do
         echo "--- kata-template $d $c"
         export result_dir=$(printf "%s/density_%04d/con_%03d" $base_dir $d $c)
-        ns="density-test" $DIR/closedloop.sh $c 20 kata-template
+        ns="density-test" $DIR/closedloop.sh $c 10 kata-template
         if [[ $? != 0 ]]; then
             exit $?
         fi
