@@ -16,7 +16,10 @@ The hardware we used for experiment is an `ecs.ebmg6.26xlarge` instance from Ali
 
 ## RunD Experiment
 
-We are sorry that we cannot provide source code or binary package of RunD, because it's tightly integrated with our internal system. However, most of the optimizations mentioned in the paper has been pushed to the kata-containers community. If you are interested, you can check **commit A, commit B...** (TODO)
+The source code of RunD is submitted to the Kata community, and most of them are still under review. The related commits in Kata community are listed as follows:
+xxxxxxxxxxx
+
+Considering that some related binary packages and binaries are tightly integrated with our internal system, we provide a screencast of the tool along with the results in our artifact.
 
 Refer to video: [ATC_RunD_AE.mp4](ATC_RunD_AE.mp4).
 
