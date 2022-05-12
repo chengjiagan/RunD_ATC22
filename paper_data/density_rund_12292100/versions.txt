@@ -1,0 +1,4 @@
+4.19.91-25.al7.x86_64
+containerd github.com/containerd/containerd v1.3.10 1c5970efbdd8bc864a34baa60c0b382434d4d7c2
+crictl version 1.16.1
+with template

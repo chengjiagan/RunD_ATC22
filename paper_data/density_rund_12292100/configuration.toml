@@ -1,0 +1,59 @@
+[hypervisor.dragonball]
+path = "/usr/local/bin/dragonball"
+kernel = "/usr/local/share/kangaroo2/vmlinux.alinux2"
+image = "/usr/local/share/kangaroo2/rootfs.img.alpine"
+
+boot_type = "BootFromTemplate"
+template_path = "/run/rund/"
+
+kernel_params = "console=ttyS1 swiotlb=noforce sunrpc.tcp_slot_table_entries=128 vsyscall=emulate ipv6.disable=1"
+default_vcpus = 1
+default_maxvcpus = 0
+default_bridges = 1
+default_memory = 168
+mem_hotplug_max_size = 3072
+
+# Disable block device from being used for a container's rootfs.
+disable_block_device_use = false
+
+shared_fs = "inline-virtio-fs"
+# Path to vhost-user-fs daemon.
+virtio_fs_daemon = "/usr/local/bin/virtiofsd2"
+# Default size of DAX cache in MiB
+virtio_fs_cache_size = 0
+
+vm_rootfs_driver = "virtio-pmem"
+
+virtio_fs_cache = "always"
+virtio_fs_extra_args = ["-o", "no_open,trace,cache_symlinks","--thread-pool-size=0"]
+
+block_device_driver = "virtio-blk"
+block_device_cache_set = true
+block_device_cache_direct = true
+#enable_debug = true
+[runtime]
+guest_hook_path="/"
+enable_sandbox_builtin_storage = true
+builtin_storage_template_image = "/mnt/xfs/ext4.img"
+builtin_storage_image_dir = "/mnt/xfs"
+use_volatile_builtin_storage = true
+sandbox_bind_mounts=["/var/log/monitor"]
+quick_shutdown = true
+disable_update_container_cgroup = true
+# enable sandbox cgroup
+sandbox_cgroup_only = true
+disabled_cgroup_hierarchies = "memory"
+# enable vcpu bind
+vcpu_cgroup_support = false
+# If enabled, the runtime will not create a network namespace for shim and hypervisor processes.
+# (default: false)
+disable_new_netns = true
+umount_timeout_ms=1000
+log_level="info"
+enable_debug = true
+log_format = "json"
+
+
+internetworking_model="tcfilter"
+# keep_alive used to monitor if agent is work in vm
+keep_alive = false

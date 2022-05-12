@@ -1,0 +1,4 @@
+4.19.91-22.fc.1.al7.x86_64
+containerd github.com/containerd/containerd 3fc2b7b2 3fc2b7b299b35db5e7efb0dc4a1af4af6aa249bd
+crictl version 2c6d894
+with template

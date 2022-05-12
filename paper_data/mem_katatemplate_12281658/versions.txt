@@ -1,0 +1,9 @@
+4.19.91-25.al7.x86_64
+containerd github.com/containerd/containerd v1.3.10 1c5970efbdd8bc864a34baa60c0b382434d4d7c2
+crictl version 1.16.1
+kata-runtime  : 1.12.1
+   commit   : b967088a667018b7468a9f93d48cb81650e0dfa4
+   OCI specs: 1.0.1-dev
+QEMU emulator version 5.0.0 (kata-static)
+Copyright (c) 2003-2020 Fabrice Bellard and the QEMU Project developers
+with template

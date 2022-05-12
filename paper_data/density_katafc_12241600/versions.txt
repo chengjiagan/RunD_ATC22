@@ -1,0 +1,8 @@
+4.19.91-25.al7.x86_64
+containerd github.com/containerd/containerd v1.5.8 1e5ef943eb76627a6d3b6de8cd1ef6537f393a71
+crictl version 1.20.0-24-g53ad8bb7
+kata-runtime  : 2.2.3
+   commit   : 3a1804cd73a58837f4c783c096fd6e54c76e8213-dirty
+   OCI specs: 1.0.2-dev
+Firecracker v0.23.1
+

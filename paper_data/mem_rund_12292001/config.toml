@@ -1,0 +1,51 @@
+root = "/home/t4/containerd"
+state = "/run/containerd"
+oom_score = -999
+
+[metrics]
+  address = ""
+  grpc_histogram = false
+
+[cgroup]
+  path = ""
+
+[plugins]
+  [plugins.hybrid]
+    device_size = "10G"
+    pool_name = "vg0-mythinpool"
+    writable_layer_driver = "dm"
+    base_snapshot_name = "hybrid_base"
+    async_remove = true
+    db_path = "/home/t4/containerd/io.containerd.metadata.v1.bolt/hybrid"
+  [plugins.cri]
+    sandbox_image = "registry.cn-shanghai.aliyuncs.com/serverless/pause-amd64:3.1"
+    stats_collect_period = 2147483647
+    max_container_log_line_size = 16384
+    [plugins.cri.containerd]
+      snapshotter = "overlayfs"
+      [plugins.cri.containerd.default_runtime]
+        runtime_type = "io.containerd.runtime.v1.linux"
+      [plugins.cri.containerd.runtimes.rund]
+        runtime_type = "rund.v2"
+      [plugins.cri.containerd.runtimes.kata]
+        runtime_type = "io.containerd.kata.v2"
+        [plugins.cri.containerd.runtimes.kata.options]
+          ConfigPath = "/etc/kata-containers/configuration-qemu.toml"
+      [plugins.cri.containerd.runtimes.kata-fc]
+        runtime_type = "io.containerd.kata.v2"
+        [plugins.cri.containerd.runtimes.kata-fc.options]
+          ConfigPath = "/etc/kata-containers/configuration-fc.toml"
+      [plugins.cri.containerd.runtimes.kata-template]
+        runtime_type = "io.containerd.kata.v2"
+        [plugins.cri.containerd.runtimes.kata-template.options]
+          ConfigPath = "/etc/kata-containers/configuration-template.toml"
+    [plugins.cri.cni]
+      bin_dir = "/opt/cni/bin"
+      conf_dir = "/etc/cni/net.d"
+      conf_template = ""
+  [plugins.linux]
+    shim_debug = true
+  [plugins.devmapper]
+    pool_name = "containerd-pool"
+    root_path = "/tmp/devmapper"
+    base_image_size = "10GB"
