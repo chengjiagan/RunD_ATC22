@@ -1,6 +1,6 @@
 # Artifacts for RunD
 
-This repository contains the test scripts and raw data used in the RunD paper. The paper has been accepted by ATC 22'.
+This repository contains the test scripts and raw data used in the RunD paper. The paper has been accepted by ATC 2022.
 
 ## Experiment Setup
 
