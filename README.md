@@ -16,10 +16,9 @@ The hardware we used for experiment is an `ecs.ebmg6.26xlarge` instance from Ali
 
 ## RunD Experiment
 
-The source code of RunD is submitted to the Kata community, and most of them are still under review. The related commits in Kata community are listed as follows:
-xxxxxxxxxxx
+The source code of RunD is submitted to the Kata community, and most of them are still under review. The related commits and pull requests to Kata community are [here](https://github.com/kata-containers/kata-containers/issues?q=label%3Aruntime-rs):
 
-Considering that some related binary packages and binaries are tightly integrated with our internal system, we provide a screencast of the tool along with the results in our artifact.
+Considering that some related binary packages are tightly integrated with our internal system, we provide a screencast of the tool along with the results in our artifact.
 
 Refer to video: [ATC_RunD_AE.mp4](ATC_RunD_AE.mp4).
 
