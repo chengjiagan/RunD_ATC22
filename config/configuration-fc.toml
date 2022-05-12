@@ -11,9 +11,9 @@
 # XXX:   Type: kata
 
 [hypervisor.firecracker]
-path = "/opt/kata/bin/firecracker"
-kernel = "/opt/kata/share/kata-containers/vmlinux.container"
-image = "/opt/kata/share/kata-containers/kata-containers.img"
+path = "/opt/kata2/bin/firecracker"
+kernel = "/opt/kata2/share/kata-containers/vmlinux.container"
+image = "/opt/kata2/share/kata-containers/kata-containers.img"
 
 # List of valid annotation names for the hypervisor
 # Each member of the list is a regular expression, which is the base name
@@ -24,19 +24,19 @@ enable_annotations = []
 # Each member of the list is a path pattern as described by glob(3).
 # The default if not set is empty (all annotations rejected.)
 # Your distribution recommends: ["/opt/kata/bin/firecracker"]
-valid_hypervisor_paths = ["/opt/kata/bin/firecracker"]
+valid_hypervisor_paths = ["/opt/kata2/bin/firecracker"]
 
 # Path for the jailer specific to firecracker
 # If the jailer path is not set kata will launch firecracker
 # without a jail. If the jailer is set firecracker will be
 # launched in a jailed enviornment created by the jailer
-jailer_path = "/opt/kata/bin/jailer"
+jailer_path = "/opt/kata2/bin/jailer"
 
 # List of valid jailer path values for the hypervisor
 # Each member of the list can be a regular expression
 # The default if not set is empty (all annotations rejected.)
 # Your distribution recommends: ["/opt/kata/bin/jailer"]
-valid_jailer_paths = ["/opt/kata/bin/jailer"]
+valid_jailer_paths = ["/opt/kata2/bin/jailer"]
 
 
 # Optional space-separated list of options to pass to the guest kernel.
@@ -298,7 +298,7 @@ kernel_modules=[]
 #enable_netmon = true
 
 # Specify the path to the netmon binary.
-path = "/opt/kata/libexec/kata-containers/kata-netmon"
+path = "/opt/kata2/libexec/kata-containers/kata-netmon"
 
 # If enabled, netmon messages will be sent to the system log
 # (default: disabled)

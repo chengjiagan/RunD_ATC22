@@ -22,23 +22,33 @@ Considering that some related binary packages are tightly integrated with our in
 
 Refer to video: [ATC_RunD_AE.mp4](ATC_RunD_AE.mp4).
 
-Test scripts used in the video are also provided in the `script` directory. Logs and analysis results are provided in the `ae_data` directory.
+Test scripts used in the video are also provided in the `script` directory. Logs and analysis results are provided in the `ae_data` directory.
 
 ## Baseline Experiment
 
 ### Install
 
-We are using containerd 1.5.2 and kata-containers 2.2.3 for the baseline experiments. Follow the instructions to install them:
+We are using containerd 1.3.10, kata-containers 2.2.3, and kata-containers 1.12.1 for the baseline experiments. Follow the instructions to install them:
 
-1.  Download and unzip.
+1. Download and unzip.
 
    ```bash
-   wget https://github.com/containerd/containerd/releases/download/v1.5.2/cri-containerd-cni-1.5.2-linux-amd64.tar.gz
+   wget https://github.com/containerd/containerd/releases/download/v1.3.10/cri-containerd-cni-1.3.10-linux-amd64.tar.gz
    wget https://github.com/kata-containers/kata-containers/releases/download/2.2.3/kata-static-2.2.3-x86_64.tar.xz
-   tar xf cri-containerd-cni-1.5.2-linux-amd64.tar.gz -C /
+   wget https://github.com/kata-containers/runtime/releases/download/1.12.1/kata-static-1.12.1-x86_64.tar.xz
+   tar xf cri-containerd-cni-1.3.10-linux-amd64.tar.gz -C /
    tar xf kata-static-2.2.3-x86_64.tar.xz -C /
+   mv /opt/kata /opt/kata2
+   tar xf kata-static-1.12.1-x86_64.tar.xz -C /
    ```
 
+2. Create symbol link to the executables.
+
+   ```bash
+   ln -sf /opt/kata/bin/containerd-shim-kata-v2 /usr/local/bin/containerd-shim-kata-v2
+   ln -sf /opt/kata2/bin/containerd-shim-kata-v2 /usr/local/bin/containerd-shim-kata2-v2
+   ```
+   
 2. Copy our config files.
 
    ```bash
@@ -51,16 +61,6 @@ We are using containerd 1.5.2 and kata-containers 2.2.3 for the baseline experim
 
    ```bash
    ./script/dmsetup.sh
-   ```
-
-4. According to an issue of kata-containers ([here](https://github.com/kata-containers/kata-containers/issues/3121)), kernel and initrd image from kata-containers 2.0.4 are required in kata-template experiment.
-
-   ```bash
-   wget https://github.com/kata-containers/kata-containers/releases/download/2.0.4/kata-static-2.0.4-x86_64.tar.xz
-   mkdir kata204
-   tar xf kata-static-2.0.4-x86_64.tar.xz -C ./kata204
-   cp ./kata204/opt/kata/share/kata-containers/vmlinux-5.4.71-84 /opt/kata/share/kata-containers/vmlinux204.container
-   cp ./kata204/opt/kata/share/kata-containers/kata-containers-initrd_alpine_2.0.4_agent_8b9607a742.initrd /opt/kata/share/kata-containers/kata-containers-initrd204.img
    ```
 
 5. Start containerd.
@@ -89,7 +89,7 @@ Scripts `time_kata_test.sh`, `time_katafc_test.sh`, and `time_katatemplate_test.
   ./script/time_katatemplate_test.sh
   ```
 
-They may takes several hours to finish. To shorten the time, some concurrency tests can be removed by removing the corresponding concurrency setting in file `time_test.conf`. The scripts will create a directory named like `time_kata_05120948` to store the logs. 
+They may takes several hours to finish. To shorten the time, some concurrency tests can be removed by removing the corresponding concurrency setting in file `time_test.conf`. The scripts will create a directory named like `time_kata_05120948` to store the logs. 
 
 We provide python scripts to analyze logs from the tests.
 
@@ -156,7 +156,7 @@ The python script will create a csv file for each runtime, named like `density_k
 
 `data`: python scripts for data analysis.
 
-`config`: configuration file for containerd and kata-containers.
+`config`: configuration file for containerd and kata-containers.
 
 `ae_data`: raw logs and analysis results in the RunD AE video.
 
