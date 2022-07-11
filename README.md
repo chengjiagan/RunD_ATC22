@@ -1,6 +1,33 @@
+
 # Artifacts for RunD
 
 This repository contains the test scripts and raw data used in the RunD paper. The paper has been accepted by ATC 2022.
+
+## RunD source code
+
+RunD, developed by OpenAnolis Community, will be open-sourced both in the OpenAnolis Community and the Kata Container Community in October. The related commits and pull requests to Kata community are [here](https://github.com/kata-containers/kata-containers/issues?q=label%3Aruntime-rs). RunD guest-to-host solution will drive Kata Container to upgrade from previous version 2.x to version 3.0. The release plan of RunD (Kata 3.0) is shown in the table.
+
+| Kata version number    | Expected release data         |
+| ------- | -------------------------------------------- |
+| 3.0.0-alpha0  | 2022-07-25     |
+| 3.0.0-alpha1  | 2022-08-15      |
+| 3.0.0-alpha2  | 2022-08-29      |
+| 3.0.0-rc0 | 2022-09-12   |
+| 3.0.0-rc1 | 2022-09-26 |
+| 3.0.0-release | 2022-10-10 |
+
+<img src="https://user-images.githubusercontent.com/25816474/178211147-31c475dc-3f1d-43ad-8252-5442f4e42973.png" width=60% />
+
+<img src="https://user-images.githubusercontent.com/25816474/178211619-365915fc-3c73-4079-ba92-4b6b46b3b9b2.png" width=80% />
+
+
+## RunD Experiment
+
+Considering that some related binary packages are tightly integrated with our internal system, we provide a screencast of the tool along with the results in our artifact.
+
+Refer to video: [ATC_RunD_AE.mp4](ATC_RunD_AE.mp4).
+
+Test scripts used in the video are also provided in the `script` directory. Logs and analysis results are provided in the `ae_data` directory.
 
 ## Experiment Setup
 
@@ -13,16 +40,6 @@ The hardware we used for experiment is an `ecs.ebmg6.26xlarge` instance from Ali
 | Memory  | 384 GiB                                      |
 | Storage | Two ESSDs: 100GB + 500GB                     |
 | OS      | Aliyun Cloud OS 2, with Linux kernel 4.19.91 |
-
-## RunD Experiment
-
-The source code of RunD is submitted to the Kata community, and most of them are still under review. The related commits and pull requests to Kata community are [here](https://github.com/kata-containers/kata-containers/issues?q=label%3Aruntime-rs):
-
-Considering that some related binary packages are tightly integrated with our internal system, we provide a screencast of the tool along with the results in our artifact.
-
-Refer to video: [ATC_RunD_AE.mp4](ATC_RunD_AE.mp4).
-
-Test scripts used in the video are also provided in the `script` directory. Logs and analysis results are provided in the `ae_data` directory.
 
 ## Baseline Experiment
 
