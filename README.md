@@ -5,7 +5,7 @@ This repository contains the test scripts and raw data used in the RunD paper. T
 
 ## RunD source code
 
-RunD, developed by OpenAnolis Community, will be open-sourced both in the OpenAnolis Community and the Kata Container Community in October. The related commits and pull requests to Kata community are [here](https://github.com/kata-containers/kata-containers/issues?q=label%3Aruntime-rs). RunD guest-to-host solution will drive Kata Container to upgrade from previous version 2.x to version 3.0. The release plan of RunD (Kata 3.0) is shown in the table.
+RunD, developed by OpenAnolis Community, will be open-sourced both in the [OpenAnolis Community](https://openanolis.cn/?lang=en) and the Kata Container Community in October. The related commits and pull requests to Kata community are [here](https://github.com/kata-containers/kata-containers/issues?q=label%3Aruntime-rs). RunD guest-to-host solution will drive Kata Container to upgrade from previous version 2.x to version 3.0. The release plan of RunD (Kata 3.0) is shown in the table.
 
 | Kata version number    | Expected release data         |
 | ------- | -------------------------------------------- |
