@@ -24,11 +24,11 @@ cp $containerd_config $base_dir/
 cp $crictl_config $base_dir/
 
 export ns="mem-test"
-for mem in ${density[@]}; do
+for mem in ${memory[@]}; do
     sed -r -i "s/default_memory = [0-9]+/default_memory = $(($mem + 240))/g" $kata_config
     $DIR/gen_katatemplate.sh $kata_config
 
-    for c in ${concurency[@]}; do
+    for c in ${density[@]}; do
         echo "--- kata-template ${mem}MB $c"
         result_fn=$(printf "%s/result_%sMB_%04d.txt" $base_dir $mem $c)
         $DIR/gen_container.sh $c kata-template
